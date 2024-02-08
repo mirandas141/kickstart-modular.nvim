@@ -1,6 +1,4 @@
 return {
-  vim.keymap.set('n', 'k', "v:count == 0 ? 'gkzz' : 'kzz'", { expr = true, silent = true }),
-  vim.keymap.set('n', 'j', "v:count == 0 ? 'gjzz' : 'jzz'", { expr = true, silent = true }),
   vim.keymap.set({ 'n', 'v' }, ';', ":"),
   vim.keymap.set('i', ';;', "<esc>", { desc = "Escape from insert mode" }),
   vim.keymap.set({ 'n', 't' }, '<A-i>', function() require("nvterm.terminal").toggle "float" end,
