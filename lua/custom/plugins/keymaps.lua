@@ -7,8 +7,8 @@ return {
     { desc = "Toggle horizonta term" }),
   vim.keymap.set({ 'n', 't' }, '<A-v>', function() require("nvterm.terminal").toggle "vertical" end,
     { desc = "Toggle vertica term" }),
-  --vim.keymap.set('n', '<C-h>', "<C-w>h", { desc = "Window left" }),
-  --vim.keymap.set('n', '<C-j>', "<C-w>j", { desc = "Window down" }),
-  --vim.keymap.set('n', '<C-k>', "<C-w>k", { desc = "Window up" }),
-  --vim.keymap.set('n', '<C-l>', "<C-w>l", { desc = "Window right" }),
+  vim.keymap.set('n', '<C-LEFT>', "<C-w>h", { desc = "Window left" }),
+  vim.keymap.set('n', '<C-DOWN>', "<C-w>j", { desc = "Window down" }),
+  vim.keymap.set('n', '<C-UP>', "<C-w>k", { desc = "Window up" }),
+  vim.keymap.set('n', '<C-RIGHT>', "<C-w>l", { desc = "Window right" }),
 }
