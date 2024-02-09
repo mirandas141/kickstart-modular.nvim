@@ -9,8 +9,8 @@ return {
     harpoon:setup()
     -- REQUIRED
 
-    vim.keymap.set("n", "<leader>m", function() harpoon:list():append() end)
-    vim.keymap.set("n", "<C-m>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+    vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
+    vim.keymap.set("n", "<leader>ho", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
     vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)
     vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end)
@@ -18,8 +18,8 @@ return {
     vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end)
 
     -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set("n", "<Tab>", function() harpoon:list():prev() end)
-    vim.keymap.set("n", "<S-Tab>", function() harpoon:list():next() end)
+    vim.keymap.set("n", "<Tab>", function() harpoon:list():next() end)
+    vim.keymap.set("n", "<S-Tab>", function() harpoon:list():prev() end)
   end,
   dependencies = { "nvim-lua/plenary.nvim" },
 }
