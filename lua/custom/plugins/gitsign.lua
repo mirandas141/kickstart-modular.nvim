@@ -48,7 +48,7 @@ return {
       map('v', '<leader>ghs', function()
         gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
       end, { desc = '[g]it [h]unk [s]tage' })
-      map('v', '<leader>hr', function()
+      map('v', '<leader>ghr', function()
         gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
       end, { desc = '[g]it [h]unk [r]eset' })
       -- normal mode
