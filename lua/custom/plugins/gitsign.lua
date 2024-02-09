@@ -1,6 +1,9 @@
 return {
   -- Adds git related signs to the gutter, as well as utilities for managing changes
   'lewis6991/gitsigns.nvim',
+  dependencies = {
+    "tpope/vim-fugitive",
+  },
   opts = {
     -- See `:help gitsigns.txt`
     signs = {
@@ -42,30 +45,29 @@ return {
 
       -- Actions
       -- visual mode
-      map('v', '<leader>hs', function()
+      map('v', '<leader>ghs', function()
         gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-      end, { desc = 'stage git hunk' })
+      end, { desc = '[g]it [h]unk [s]tage' })
       map('v', '<leader>hr', function()
         gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-      end, { desc = 'reset git hunk' })
+      end, { desc = '[g]it [h]unk [r]eset' })
       -- normal mode
-      map('n', '<leader>hs', gs.stage_hunk, { desc = 'git stage hunk' })
-      map('n', '<leader>hr', gs.reset_hunk, { desc = 'git reset hunk' })
-      map('n', '<leader>hS', gs.stage_buffer, { desc = 'git Stage buffer' })
-      map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
-      map('n', '<leader>hR', gs.reset_buffer, { desc = 'git Reset buffer' })
-      map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
-      map('n', '<leader>hb', function()
+      map('n', '<leader>ghs', gs.stage_hunk, { desc = '[g]it [h]unk [s]tage' })
+      map('n', '<leader>ghr', gs.reset_hunk, { desc = '[g]it [h]unk [r]eset' })
+      map('n', '<leader>ghu', gs.undo_stage_hunk, { desc = '[g]it [h]unk [u]ndo' })
+      map('n', '<leader>ghp', gs.preview_hunk, { desc = '[g]it [h]unk [p]review' })
+      map('n', '<leader>gbs', gs.stage_buffer, { desc = '[g]it [b]uffer [s]tage' })
+      map('n', '<leader>gbr', gs.reset_buffer, { desc = '[g]it [b]uffer [r]eset' })
+      map('n', '<leader>gbl', function()
         gs.blame_line { full = false }
-      end, { desc = 'git blame line' })
-      map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
-      map('n', '<leader>hD', function()
+      end, { desc = '[g]it [b]lame [l]ine' })
+      map('n', '<leader>gdi', gs.diffthis, { desc = '[g]it [d]iff against [i]ndex' })
+      map('n', '<leader>gdc', function()
         gs.diffthis '~'
-      end, { desc = 'git diff against last commit' })
-
+      end, { desc = '[g]it [d]iff against last [c]ommit' })
       -- Toggles
-      map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-      map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+      map('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = '[g]it [t]oggle [b]lame line' })
+      map('n', '<leader>gtd', gs.toggle_deleted, { desc = '[g]it [t]oggle show [deleted]' })
 
       -- Text object
       map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
