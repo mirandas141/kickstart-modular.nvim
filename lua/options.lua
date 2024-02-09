@@ -6,7 +6,9 @@
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.statuscolumn = "%s %l %r "
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -27,7 +29,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -38,5 +40,15 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- Set tab width to 2 spaces
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.expandtab = true
+
+-- Always keep 8 lines above/below cursor except for the beginning and end of file
+vim.o.scrolloff = 8
+
+vim.o.colorcolumn = "80"
 
 -- vim: ts=2 sts=2 sw=2 et
