@@ -3,17 +3,17 @@ return {
     "tpope/vim-fugitive",
     lazy = false,
     keys = {
-      { "<leader>gs", "<cmd>vertical Git <cr>", desc = "[g]it [s]tatus" },
-      { "<leader>gc", "<cmd>Git commit --quiet<cr>", desc = "[g]it [c]commit" },
-      { "<leader>gff", "<cmd>Git fetch<cr>", desc = "[g]it [f]etch" },
-      { "<leader>gfp", "<cmd>Git push<cr>", desc = "[g]it [p]ush" },
-      { "<leader>gfP", "<cmd>Git pull<cr>", desc = "[g]it [P]ull" },
+      { "<leader>gs",  "<cmd>vertical Git <cr>",      desc = "[g]it [s]tatus" },
+      { "<leader>gc",  "<cmd>Git commit --quiet<cr>", desc = "[g]it [c]commit" },
+      { "<leader>gff", "<cmd>Git fetch<cr>",          desc = "[g]it [f]etch" },
+      { "<leader>gfp", "<cmd>Git push<cr>",           desc = "[g]it [p]ush" },
+      { "<leader>gfP", "<cmd>Git pull<cr>",           desc = "[g]it [P]ull" },
     },
   },
   {
     "lewis6991/gitsigns.nvim",
     dependencies = {
-            "tpope/vim-fugitive",
+      "tpope/vim-fugitive",
     },
     opts = {
       -- See `:help gitsigns.txt`
@@ -36,23 +36,23 @@ return {
         -- Navigation
         map("n", "]c", function()
           if vim.wo.diff then
-                  return "]c"
+            return "]c"
           end
           vim.schedule(function()
-                  gs.next_hunk()
+            gs.next_hunk()
           end)
           return "<Ignore>"
         end, { expr = true, desc = "Next Hunk" })
 
         map("n", "[c", function()
           if vim.wo.diff then
-                  return "[c"
+            return "[c"
           end
           vim.schedule(function()
-                  gs.prev_hunk()
+            gs.prev_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true, desc = "Previous Hunk"})
+        end, { expr = true, desc = "Previous Hunk" })
 
         -- Actions
         map({ "n", "v" }, "<leader>gt", ":Gitsigns stage_hunk<CR>")
@@ -63,12 +63,12 @@ return {
         map("n", "<leader>gR", gs.reset_buffer, { desc = "[g]it [R]eset buffer" })
         map("n", "<leader>gp", gs.preview_hunk, { desc = "[g]it [p]review hunk" })
         map("n", "<leader>gb", function()
-                gs.blame_line({ full = true })
+          gs.blame_line({ full = true })
         end, { desc = "[g]it [b]lame line" })
         map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "[t]oggle current line [b]lame" })
         map("n", "<leader>gd", gs.diffthis, { desc = "[g]it [d]iff this" })
         map("n", "<leader>gD", function()
-                gs.diffthis("~")
+          gs.diffthis("~")
         end, { desc = "[g]it inverse [D]iff" })
         map("n", "[gd", gs.toggle_deleted, { desc = "toggle [g]it [d]elete" })
 
