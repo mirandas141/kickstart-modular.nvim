@@ -1,6 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
-  lazy = false,
+  lazy = true,
   branch = "harpoon2",
   init = function()
     local harpoon = require("harpoon")
