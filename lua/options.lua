@@ -46,6 +46,9 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.expandtab = true
 
+-- Preview substitutions
+vim.o.inccommand = 'split'
+
 -- Always keep 8 lines above/below cursor except for the beginning and end of file
 vim.o.scrolloff = 8
 
