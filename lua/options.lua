@@ -55,3 +55,5 @@ vim.o.scrolloff = 8
 vim.o.colorcolumn = "80"
 
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.o.conceallevel = 1
