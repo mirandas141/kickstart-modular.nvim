@@ -31,6 +31,9 @@ return {
           ["g."] = "actions.toggle_hidden",
         },
         use_default_keymaps = false,
+        vim.keymap.set({ 'n', 'v', 't' }, '<leader>e', function()
+          require("oil").toggle_float()
+        end, { desc = "Toggle oil" })
       })
     end,
   },

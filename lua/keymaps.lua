@@ -25,8 +25,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-vim.keymap.set({ 'n', 'v', 't' }, '<leader>e', function()
-  require("oil").toggle_float()
-end, { desc = "Toggle oil" })
-
 -- vim: ts=2 sts=2 sw=2 et
