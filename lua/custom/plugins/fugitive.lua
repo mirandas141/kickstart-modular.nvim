@@ -1,28 +1,25 @@
 return {
   {
-    "tpope/vim-fugitive",
+    'tpope/vim-fugitive',
     lazy = false,
     keys = {
-      { "<leader>gs", "<cmd>vertical Git <cr>", desc = "[G]it [s]tatus" },
-      { "<leader>gc", "<cmd>Git commit --quiet<cr>", desc = "[G]it [s]tatus" },
-      { "<leader>gfp", "<cmd>Git push<cr>", desc = "[G]it [p]ush" },
-      { "<leader>gfP", "<cmd>Git pull<cr>", desc = "[G]it [P]ull" },
+      { '<leader>fgs', '<cmd>vertical Git <cr>', desc = '[G]it [s]tatus' },
     },
   },
   {
-    "lewis6991/gitsigns.nvim",
+    'lewis6991/gitsigns.nvim',
     dependencies = {
-            "tpope/vim-fugitive",
+      'tpope/vim-fugitive',
     },
     opts = {
       -- See `:help gitsigns.txt`
-      -- signs = {
-      --   add = { text = '+' },
-      --   change = { text = '~' },
-      --   delete = { text = '_' },
-      --   topdelete = { text = '‾' },
-      --   changedelete = { text = '~' },
-      -- },
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
@@ -33,47 +30,36 @@ return {
         end
 
         -- Navigation
-        map("n", "]c", function()
+        map('n', ']c', function()
           if vim.wo.diff then
-                  return "]c"
+            return ']c'
           end
           vim.schedule(function()
-                  gs.next_hunk()
+            gs.next_hunk()
           end)
-          return "<Ignore>"
+          return '<Ignore>'
         end, { expr = true })
 
-        map("n", "[c", function()
+        map('n', '[c', function()
           if vim.wo.diff then
-                  return "[c"
+            return '[c'
           end
           vim.schedule(function()
-                  gs.prev_hunk()
+            gs.prev_hunk()
           end)
-          return "<Ignore>"
+          return '<Ignore>'
         end, { expr = true })
 
         -- Actions
-        map({ "n", "v" }, "<leader>gt", ":Gitsigns stage_hunk<CR>")
-        map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>")
-        map({ "n", "v" }, "<leader>ge", ":Gedit<CR>")
-        map("n", "<leader>gS", gs.stage_buffer)
-        map("n", "<leader>gu", gs.undo_stage_hunk)
-        map("n", "<leader>gR", gs.reset_buffer)
-        map("n", "<leader>gp", gs.preview_hunk)
-        map("n", "<leader>gb", function()
-                gs.blame_line({ full = true })
+        map('n', '<leader>gb', function()
+          gs.blame_line { full = true }
         end)
-        map("n", "<leader>tb", gs.toggle_current_line_blame)
-        map("n", "<leader>gd", gs.diffthis)
-        map("n", "<leader>gD", function()
-                gs.diffthis("~")
-        end)
-        map("n", "[gd", gs.toggle_deleted)
+        map('n', 'tb', gs.toggle_current_line_blame)
+        map('n', 'td', gs.toggle_deleted)
 
         -- Text object
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end,
     },
-  }
+  },
 }
